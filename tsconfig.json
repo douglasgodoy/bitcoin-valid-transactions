@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"module": "es2022",
+		"lib": [
+			"ESNext"
+		],
+		"moduleResolution": "node",
+		"removeComments": true,
+		"declaration": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowJs": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"importHelpers": true,
+		"baseUrl": ".",
+		"outDir": "dist",
+		"sourceMap": true,
+		"target": "es2022",
+		"resolveJsonModule": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true
+	},
+	"include": [
+		"src/**/*",
+		"__tests__/**/*",
+		"index.ts",
+		"./.eslintrc.js"
+	]
+}
