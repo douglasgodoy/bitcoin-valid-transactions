@@ -7,7 +7,7 @@ export async function getValidTransactions(
   console.log('Getting valid transactions...');
 
   const params: DocumentClient.QueryInput = {
-    TableName: <string>process.env.DYNAMO_TABLE,
+    TableName: <string>process.env.DATABASE_TABLE,
     IndexName: 'GSI-Category-Confirmations',
     KeyConditionExpression:
       '#category = :category AND #confirmations > :confirmations',

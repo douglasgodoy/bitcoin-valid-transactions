@@ -4,7 +4,7 @@ export default async function createCustomers(
   dynamoInstance: AWS.DynamoDB.DocumentClient,
 ): Promise<AWS.DynamoDB.DocumentClient.BatchWriteItemOutput> {
   console.log('creating customers...');
-  const tableName = <string>process.env.DYNAMO_TABLE;
+  const tableName = <string>process.env.DATABASE_TABLE;
 
   const params = {
     RequestItems: {

@@ -26,7 +26,7 @@ services:
       AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'
       DB_REGION: 'eu-west-1'
       DB_URI: 'http://dynamodb-local:8000'
-      DYNAMO_TABLE: 'RunaTable'
+      DATABASE_TABLE: 'RunaTable'
 networks:
   app_network:
     driver: bridge

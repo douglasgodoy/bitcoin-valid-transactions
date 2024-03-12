@@ -2,7 +2,7 @@ import { randomUUID } from 'crypto';
 import { readFile } from 'fs/promises';
 import { Transaction } from '../types';
 
-const tableName = <string>process.env.DYNAMO_TABLE;
+const tableName = <string>process.env.DATABASE_TABLE;
 
 export async function saveTransactions(
   filePath: string,

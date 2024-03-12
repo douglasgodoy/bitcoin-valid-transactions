@@ -13,7 +13,7 @@ const dynamodb: DatabaseType = {
     });
 
     const params = {
-      TableName: <string>process.env.DYNAMO_TABLE,
+      TableName: <string>process.env.DATABASE_TABLE,
 
       AttributeDefinitions: [
         { AttributeName: 'PK', AttributeType: 'S' },
