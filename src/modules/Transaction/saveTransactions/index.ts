@@ -10,6 +10,7 @@ export async function saveTransactions(
 ) {
   const content = (await readFile(filePath)).toString();
   const { transactions } = JSON.parse(content);
+  console.log('Storing transactions data...');
 
   const batchSize = 25;
   const totalTransactions = transactions.length;
@@ -24,16 +25,12 @@ export async function saveTransactions(
         [tableName]: batchTransactions.map((transaction: Transaction) => ({
           PutRequest: {
             Item: {
-              Amount:
-                typeof transaction.amount === 'bigint'
-                  ? BigInt(transaction.amount)
-                  : transaction.amount,
+              Amount: Number(transaction.amount),
               PK: transaction.address,
               SK: `TRANSACTION#${randomUUID()}`,
               Confirmations: transaction.confirmations,
               Label: transaction.label,
               Category: transaction.category,
-              Txid: transaction.txid,
               Blockindex: transaction.blockindex,
               ReceivedAt: transaction.timereceived,
             },

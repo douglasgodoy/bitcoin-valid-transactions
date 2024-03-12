@@ -11,7 +11,6 @@
     "@types/connect-timeout": "^0.0.39",
     "@types/jest": "~29.5",
     "@types/node": "~18",
-    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "~6.2",
     "@typescript-eslint/parser": "~6.2",
     "eslint": "~8.46",
@@ -42,7 +41,6 @@
   "dependencies": {
     "aws-sdk": "^2.1494.0",
     "dotenv": "^16.3.1",
-    "tslib": "~2.6",
-    "uuid": "^9.0.1"
+    "tslib": "~2.6"
   }
 }

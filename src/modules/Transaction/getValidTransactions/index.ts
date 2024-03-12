@@ -4,7 +4,7 @@ import { TransactionFromDB } from '../types';
 export async function getValidTransactions(
   databaseInstance: AWS.DynamoDB.DocumentClient,
 ): Promise<TransactionFromDB[]> {
-  console.log('getValidTransactions...');
+  console.log('Getting valid transactions...');
 
   const params: DocumentClient.QueryInput = {
     TableName: <string>process.env.DYNAMO_TABLE,

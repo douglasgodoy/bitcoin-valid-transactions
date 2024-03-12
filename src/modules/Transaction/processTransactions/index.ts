@@ -11,12 +11,12 @@ export function processTransactions(transactions?: TransactionFromDB[]) {
     const key = CUSTOMERS_MAP[transaction.PK];
     if (customerMap.has(key)) {
       customerMap.set(key, {
-        sum: BigInt(customerMap.get(key).sum) + BigInt(transaction.Amount),
+        sum: Number(customerMap.get(key).sum) + Number(transaction.Amount),
         count: customerMap.get(key).count + 1,
       });
     } else {
       customerMap.set(key, {
-        sum: BigInt(transaction.Amount),
+        sum: Number(transaction.Amount),
         count: 1,
       });
     }
@@ -28,18 +28,26 @@ export function processTransactions(transactions?: TransactionFromDB[]) {
   const noReference = customerMap.get(undefined);
   customerMap.delete(undefined);
 
-  for (const [customer, value] of customerMap) {
-    // TODO - SORT EQUAL TO TEST
+  console.log(
+    '-------------------------RESULT---------------------------------',
+  );
+
+  for (const customerName of Object.values(CUSTOMERS_MAP)) {
     console.log(
-      `Deposited for ${customer}: count=${value.count} sum=${value.sum}}`,
+      `Deposited for ${customerName}: count=${
+        customerMap.get(customerName).count
+      } sum=${customerMap.get(customerName).sum}`,
     );
   }
 
   console.log(
-    `Deposited without reference: count=${noReference.count} sum=${noReference.sum}}`,
+    `Deposited without reference: count=${noReference.count} sum=${noReference.sum}`,
   );
 
   console.log(`Smallest valid deposit: ${smallestValidDeposit}`);
 
   console.log(`Largest valid deposit: ${largestValidDeposit}`);
+  console.log(
+    '---------------------------------------------------------------',
+  );
 }
