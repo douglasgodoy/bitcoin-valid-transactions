@@ -8,9 +8,10 @@ export async function saveTransactions(
   filePath: string,
   databaseInstance: AWS.DynamoDB.DocumentClient,
 ) {
+  console.log('Storing transactions data...');
+
   const content = (await readFile(filePath)).toString();
   const { transactions } = JSON.parse(content);
-  console.log('Storing transactions data...');
 
   const batchSize = 25;
   const totalTransactions = transactions.length;
@@ -33,6 +34,7 @@ export async function saveTransactions(
               Category: transaction.category,
               Blockindex: transaction.blockindex,
               ReceivedAt: transaction.timereceived,
+              Txid: transaction.txid,
             },
           },
         })),
