@@ -5,7 +5,6 @@ export async function getValidTransactions(
   databaseInstance: AWS.DynamoDB.DocumentClient,
 ): Promise<TransactionFromDB[]> {
   console.log('Getting valid transactions...');
-
   const params: DocumentClient.QueryInput = {
     TableName: <string>process.env.DATABASE_TABLE,
     IndexName: 'GSI-Category-Confirmations',

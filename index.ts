@@ -9,15 +9,20 @@ import { dropTable, storeData } from 'src/utils/helpers';
 
 dotenv.config();
 
-try {
-  await dynamodb.startDatabase();
-  const databaseInstance = DynamoDBSingleton.getInstance();
+export async function main() {
+  try {
+    await dynamodb.startDatabase();
+    const databaseInstance = DynamoDBSingleton.getInstance();
 
-  await storeData(databaseInstance);
-  const validTransactions = await getValidTransactions(databaseInstance);
-  processTransactions(validTransactions);
-} catch (error) {
-  console.error('An error occurred', error);
-} finally {
-  dropTable();
+    await storeData(databaseInstance);
+    const validTransactions = await getValidTransactions(databaseInstance);
+
+    processTransactions(validTransactions);
+  } catch (error) {
+    console.error('An error occurred', error);
+  } finally {
+    dropTable();
+  }
 }
+
+main();
